@@ -73,6 +73,20 @@ class JournalEntry extends HTMLElement {
      */
     
     // CODE GOES HERE
+    let title = this.shadowRoot.querySelector(".entry-title");
+    let date = this.shadowRoot.querySelector(".entry-date");
+    let content = this.shadowRoot.querySelector(".entry-content");
+
+    let entryElement = this.shadowRoot.querySelector(".entry");
+
+    title.innerHTML = entry.title;
+    date.innerHTML = entry.date;
+    content.innerHTML = entry.content;
+    /*
+    document.getElementsByClassName("entry-title")[0].innerHTML(entry.title);
+    document.getElementsByClassName("entry-date")[0].innerHTML(entry.date);
+    document.getElementsByClassName("entry-content")[0].innerHTML(entry.content);
+    */
 
     if (entry.image) {
       let entryImage;
@@ -84,11 +98,11 @@ class JournalEntry extends HTMLElement {
        */
 
       // CODE GOES HERE vvv
-
-
-
-
-
+      entryImage = document.createElement('img');
+      entryImage.className = "entry-image";
+      entryImage.src = entry.image.src;
+      entryImage.alt = entry.image.alt;
+      entryElement.append(entryImage);
       // CODE GOES HERE ^^^
 
       /* ------------- do not edit this code, it is for your debugging purposes ------------- */
@@ -110,12 +124,11 @@ class JournalEntry extends HTMLElement {
        */
 
       // CODE GOES HERE vvv
-
-
-
-
-
-
+      entryAudio= document.createElement('audio');
+      entryAudio.className = "entry-audio";
+      entryAudio.src = entry.audio;
+      entryAudio.controls = true;
+      entryElement.append(entryAudio);
       // CODE GOES HERE ^^^
       
 
